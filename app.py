@@ -17,6 +17,8 @@ def home():
     random_quote = random.choice(quotes)
     return render_template("index.html", quote=random_quote)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    # Render uses the PORT environment variable
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)  # Bind to 0.0.0.0 and use the correct port
 
